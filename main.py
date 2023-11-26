@@ -3,7 +3,7 @@ sys.modules['sqlite3'] = __import__('pysqlite3')
 
 import streamlit as st
 
-from langchain.document_loaders import CSVLoader, PyPDFLoader, PythonLoader, UnstructuredWordDocumentLoader#, Docx2txtLoader # from langchain.document_loaders import CSVLoader, PDFMinerLoader, TextLoader, UnstructuredExcelLoader, Docx2txtLoader, UnstructuredFileLoader, UnstructuredMarkdownLoader
+from langchain.document_loaders import PyPDFLoader, PythonLoader, UnstructuredWordDocumentLoader#, CSVLoader#, Docx2txtLoader # from langchain.document_loaders import CSVLoader, PDFMinerLoader, TextLoader, UnstructuredExcelLoader, Docx2txtLoader, UnstructuredFileLoader, UnstructuredMarkdownLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter # CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.chains.question_answering import load_qa_chain
@@ -29,10 +29,10 @@ def load_chunk_persist_pdf() -> Chroma:
     # for file in data_files:
     for root, dirs, files in os.walk(folder_path):
         for file in files:    
-            if file.endswith('.csv'):
-                pdf_path = os.path.join(folder_path, file)
-                loader = CSVLoader(pdf_path)
-                documents.extend(loader.load())
+            # if file.endswith('.csv'):
+            #     pdf_path = os.path.join(folder_path, file)
+            #     loader = CSVLoader(pdf_path)
+            #     documents.extend(loader.load())
             if file.endswith('.pdf'):
                 pdf_path = os.path.join(folder_path, file)
                 loader = PyPDFLoader(pdf_path)
