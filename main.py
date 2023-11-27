@@ -111,10 +111,10 @@ vectordb = load_chunk_persist_pdf()
 chain = create_agent_chain()
 
 # User Interface
-st.set_page_config(page_title="DSGPT", page_icon=":robot:")
-st.header("DSGPT: Ask python libraries how they work")
+st.set_page_config(page_title="DashboardGPT", page_icon=":robot:")
+st.header("Talk To All Your Dashboards:")
 
-form_input = st.text_input('Enter Question and Click Enter with your Mouse')
+form_input = st.text_input('Enter Question and Click Generate Button')
 submit = st.button("Generate")
 
 if submit:
